@@ -3,11 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>登录页面</title>
+    <style>
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 30px 200px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;
+            margin: 4px 2px;
+            cursor: pointer;
+            display:block;;margin: 0 auto;
+        }
+</style>
 </head>
 <body>
-    登录页面<br>
-    {% for i in today %}
-       {{  i }}<br>
-    {% endfor %}
+    <button class="button" onclick="go_compare()">移动数据对比</button>
+{#    <a href="#" class="button">链接按钮</a>#}
 </body>
 </html>
+
+<script>
+    function go_compare() {
+        alert("这是跳转移动数据对比的点击事件")
+    }
+</script>
+
+
+
+

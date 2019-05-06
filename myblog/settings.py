@@ -86,13 +86,13 @@ DB_WAIT_TIMEOUT = 29  # 单个连接最长维持时间
 DB_POOL_SIZE = 8  # 连接池最大连接数
 
 DATABASES = {
-        'default': {
+    'default': {
         'ENGINE': DB_ENGINE,
         'NAME': 'tbkt_base',
-        'USER': DATABASES_CONFIG["TBKT_BASE_USER"],
-        'PASSWORD': DATABASES_CONFIG["TBKT_BASE_PASSWORD"],
-        'HOST': DATABASES_CONFIG["TBKT_BASE_HOST"],
-        'PORT': DATABASES_CONFIG["TBKT_BASE_PORT"],
+        'USER': DATABASES_CONFIG["LOCAL_USER"],
+        'PASSWORD': DATABASES_CONFIG["LOCAL_PASSWORD"],
+        'HOST': DATABASES_CONFIG["LOCAL_HOST"],
+        'PORT': DATABASES_CONFIG["LOCAL_PORT"],
     },
     'gift': {
         'ENGINE': DB_ENGINE,
