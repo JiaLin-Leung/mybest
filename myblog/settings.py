@@ -14,9 +14,7 @@ import os
 
 # 读取数据库配置文件
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print("11111",BASE_DIR)
 config_file = os.path.join(BASE_DIR, '.env')
-print("22222",config_file)
 with open(config_file) as f:
     config = f.read()
     DATABASES_CONFIG = json.loads(config)
