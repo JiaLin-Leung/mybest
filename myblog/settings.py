@@ -94,13 +94,13 @@ DATABASES = {
         'HOST': DATABASES_CONFIG["LOCAL_HOST"],
         'PORT': DATABASES_CONFIG["LOCAL_PORT"],
     },
-    'gift': {
+    'yd': {
         'ENGINE': DB_ENGINE,
-        'NAME': 'tbkt_gift',
-        'USER': DATABASES_CONFIG["TBKT_GIFT_USER"],
-        'PASSWORD': DATABASES_CONFIG["TBKT_GIFT_PASSWORD"],
-        'HOST': DATABASES_CONFIG["TBKT_GIFT_HOST"],
-        'PORT': DATABASES_CONFIG["TBKT_GIFT_PORT"],
+        'NAME': 'tbkt_base',
+        'USER': DATABASES_CONFIG["YD_USER"],
+        'PASSWORD': DATABASES_CONFIG["YD_PASSWORD"],
+        'HOST': DATABASES_CONFIG["YD_HOST"],
+        'PORT': DATABASES_CONFIG["YD_PORT"],
     }
 }
 

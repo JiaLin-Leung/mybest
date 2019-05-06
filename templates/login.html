@@ -17,11 +17,64 @@
             cursor: pointer;
             display:block;;margin: 0 auto;
         }
+
+        table.gridtable {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+        }
+        table.gridtable th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #dedede;
+        }
+        table.gridtable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+        }
+
 </style>
 </head>
 <body>
     <button class="button" onclick="go_compare()">移动数据对比</button>
-{#    <a href="#" class="button">链接按钮</a>#}
+    <div class="table-a">
+        <table class="gridtable" align="center" border="1">
+            <tr>
+                <th class="hi_1">最大id</th>
+                <th class="hi_2">目前循环次数</th>
+                <th class="hi_4">本条记录添加时间</th>
+                <th class="hi_3">查询sql循环次数</th>
+                <th class="hi_5">一共对比数据量</th>
+            </tr>
+            <tr class="lesson_length">
+                <td class="hi_1 wi_1">
+                    <p>{{ data.cycle_max_id }}</p>
+                </td>
+                <td class="hi_2 wi_2">
+                    <p>{{ data.main_cycle_num }}</p>
+                </td>
+
+                <td class="hi_4 wi_4">
+                    <p>{{ data.add_time }}</p>
+
+                </td>
+                <td class="hi_3 wi_3">
+                    <p>{{ data.sql_cycle_num }}</p>
+                </td>
+                <td class="table_operate">
+                    <p>{{ compare_num }}</p>
+                </td>
+            </tr>
+        </table>
+    <div>
 </body>
 </html>
 
