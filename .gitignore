@@ -19,3 +19,4 @@ settings_dawang.pyl
 .devenv
 #apidoc/
 *.djcache
+.env
