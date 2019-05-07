@@ -75,15 +75,65 @@
             </tr>
         </table>
     <div>
+                <table class="gridtable" align="center" border="1">
+                <tr>
+                    <th class="hi_1">id</th>
+                    <th class="hi_2">手机号</th>
+                    <th class="hi_3">code</th>
+                    <th class="hi_4">ecid</th>
+                    <th class="hi_5">subject_id</th>
+                    <th class="hi_6">after_status</th>
+                </tr>
+                {% for item in data %}
+                <tr>
+                    <td class="hi_1 wi_1">
+                        {{ item.id }}
+                    </td>
+                    <td class="hi_2 wi_2">
+                        <p>{{item.phone_num}}</p>
+                    </td>
+                    <td class="hi_3 wi_3">
+                        <p>{{ item.code }}</p>
+                    </td>
+                    <td class="hi_4 wi_4">
+                        <p>{{ item.ecid }}</p>
+                    </td>
+                    <td class="hi_5 wi_5">
+                        <p>{{ item.subject_id }}</p>
+                    </td>
+                    <td class="hi_6 wi_6">
+                        <p>{{ item.after_status }}</p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+     <div class="page" id="page">
+        {% if data %}
+        {% if data.has_previous %}
+        <a href="javascript:;" page="{{ data.previous_page_number}}" class="prev">上一页</a>
+        {% endif %}
+        <span>
+            {% for p in page_range %}
+            {% if p == data.number %}
+            <span class="current" page="{{p}}" >{{ p }}</span>
+            {% else %}
+            <a href="/message/list?page={{p}}" page="{{ p }}" title="第{{ p }}页">{{ p }}</a>
+            {% endif %}
+            {% endfor %}
+        </span>
+        {% if data.has_next%}
+        <a href="javascript:;" page="{{ data.next_page_number}}" class="next"> 下一页</a>
+        {% endif %}
+        {% endif %}
+    </div>
 </body>
 </html>
 
 <script>
-    function go_compare() {
-        alert("这是跳转移动数据对比的点击事件")
-    }
+    var page = "{{page}}";
+    var allpage = "{{allpage}}";
+    seajs.use(['main/'])
 </script>
-
 
 
 
