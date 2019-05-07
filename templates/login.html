@@ -132,10 +132,27 @@
     </div>
 </body>
 </html>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 <script>
     var page = "{{page}}";
     var allpage = "{{allpage}}";
-    seajs.use(['main/'])
+        //分页点击
+    $('.prev').on('click',function(){
+        console.log("47474747474747474")
+        page--;
+        if(page<=1){
+            page=1;
+        }
+        location.href="/main?page="+page;
+    })
+    $('.next').on('click',function(){
+        console.log("575757575757575757")
+        page++;
+        if(page>=allpage){
+            page = allpage;
+        }
+        location.href="/main?page="+page;
+    })
 </script>
 
 
