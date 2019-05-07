@@ -33,7 +33,9 @@ SECRET_KEY = 'w9(htz%!x4732!y8wy5=(s3sldkjt3sil5%+-dmi6@zcw7rmjm'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+MIDDLEWARE = (
+    'myblog.middleware.AuthenticationMiddleware',
+)
 
 # Application definition
 

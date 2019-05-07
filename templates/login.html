@@ -18,6 +18,10 @@
             display:block;;margin: 0 auto;
         }
 
+        .page {
+            text-align: center;
+        }
+
         table.gridtable {
             font-family: verdana,arial,sans-serif;
             font-size:11px;
@@ -56,18 +60,18 @@
             </tr>
             <tr class="lesson_length">
                 <td class="hi_1 wi_1">
-                    <p>{{ data.cycle_max_id }}</p>
+                    <p>{{ data_info.cycle_max_id }}</p>
                 </td>
                 <td class="hi_2 wi_2">
-                    <p>{{ data.main_cycle_num }}</p>
+                    <p>{{ data_info.main_cycle_num }}</p>
                 </td>
 
                 <td class="hi_4 wi_4">
-                    <p>{{ data.add_time }}</p>
+                    <p>{{ data_info.add_time }}</p>
 
                 </td>
                 <td class="hi_3 wi_3">
-                    <p>{{ data.sql_cycle_num }}</p>
+                    <p>{{ data_info.sql_cycle_num }}</p>
                 </td>
                 <td class="table_operate">
                     <p>{{ compare_num }}</p>
@@ -117,7 +121,7 @@
             {% if p == data.number %}
             <span class="current" page="{{p}}" >{{ p }}</span>
             {% else %}
-            <a href="/message/list?page={{p}}" page="{{ p }}" title="第{{ p }}页">{{ p }}</a>
+            <a href="/main?page={{p}}" page="{{ p }}" title="第{{ p }}页">{{ p }}</a>
             {% endif %}
             {% endfor %}
         </span>
@@ -128,12 +132,12 @@
     </div>
 </body>
 </html>
-
 <script>
     var page = "{{page}}";
     var allpage = "{{allpage}}";
     seajs.use(['main/'])
 </script>
+
 
 
 
