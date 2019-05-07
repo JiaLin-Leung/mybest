@@ -23,6 +23,7 @@
         }
 
         table.gridtable {
+            margin-top: 30px;
             font-family: verdana,arial,sans-serif;
             font-size:11px;
             color:#333333;
@@ -83,10 +84,10 @@
                 <tr>
                     <th class="hi_1">id</th>
                     <th class="hi_2">手机号</th>
-                    <th class="hi_3">code</th>
+                    <th class="hi_3">计费代码</th>
                     <th class="hi_4">ecid</th>
-                    <th class="hi_5">subject_id</th>
-                    <th class="hi_6">after_status</th>
+                    <th class="hi_5">科目</th>
+                    <th class="hi_6">开通状态</th>
                 </tr>
                 {% for item in data %}
                 <tr>
@@ -103,10 +104,24 @@
                         <p>{{ item.ecid }}</p>
                     </td>
                     <td class="hi_5 wi_5">
-                        <p>{{ item.subject_id }}</p>
+                        {% if item.subject_id == 2 %}
+                            <p>数学</p>
+                        {% elif item.subject_id == 3 %}
+                            <p>物理</p>
+                        {% elif item.subject_id == 4 %}
+                            <p>化学</p>
+                        {% elif item.subject_id == 5 %}
+                            <p>语文</p>
+                        {% elif item.subject_id == 9 %}
+                            <p>英语</p>
+                        {% endif %}
+
                     </td>
                     <td class="hi_6 wi_6">
-                        <p>{{ item.after_status }}</p>
+                        {% if item.after_status  == 1%}
+                            <p>移动已取消</p>
+                        {% endif %}
+
                     </td>
                 </tr>
                 {% endfor %}
@@ -138,7 +153,6 @@
     var allpage = "{{allpage}}";
         //分页点击
     $('.prev').on('click',function(){
-        console.log("47474747474747474")
         page--;
         if(page<=1){
             page=1;
@@ -146,7 +160,6 @@
         location.href="/main?page="+page;
     })
     $('.next').on('click',function(){
-        console.log("575757575757575757")
         page++;
         if(page>=allpage){
             page = allpage;
