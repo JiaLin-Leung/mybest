@@ -87,7 +87,8 @@
                     <th class="hi_3">计费代码</th>
                     <th class="hi_4">ecid</th>
                     <th class="hi_5">科目</th>
-                    <th class="hi_6">开通状态</th>
+                    <th class="hi_6">移动开通状态</th>
+                    <th class="hi_7">同步课堂开通状态</th>
                 </tr>
                 {% for item in data %}
                 <tr>
@@ -119,9 +120,12 @@
                     </td>
                     <td class="hi_6 wi_6">
                         {% if item.after_status  == 1%}
-                            <p>移动已取消</p>
+                            <p>取消或退订</p>
                         {% endif %}
 
+                    </td>
+                    <td class="hi_7 wi_7">
+                         <p>开通</p>
                     </td>
                 </tr>
                 {% endfor %}
