@@ -19,5 +19,7 @@ from django.urls import path
 from blog import views
 
 urlpatterns = [
-    path('main/', views.yd_information),
+    path('', views.main_page),
+    path('info/', views.yd_information),
+    path('error/', views.yd_information_error),
 ]

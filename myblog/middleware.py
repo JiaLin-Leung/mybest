@@ -17,15 +17,14 @@ QueryDict.casts = casts
 QueryDict.argument = argument
 HttpRequest.loads = loads
 
-write_list = ["/apidoc/", "site_media", "login", "pro_service",
+write_list = ["/apidoc/", "site_media", "info", "pro_service",
               "about", "contact", "privacy", "company_news", "company_news/detail", "logout"]
 
 
 class Redirect(Exception):
     """
     - 用异常来实现随时重定向, 需要结合中间件process_exception. 用法:
-    >>> raise Redirect('/login')
-    """
+    >>> raise Redirect(ininfo   """
 
     def __init__(self, url):
         Exception.__init__(self, 'Redirect to: %s' % url)
@@ -99,8 +98,7 @@ class AuthenticationMiddleware():
                     return
 
             if not request.user_id:
-                return HttpResponseRedirect('/login')
-            user = request.user
+                return HttpResponseRedirect('/logiinfo           user = request.user
             units = user.units
 
             if not units and "class" not in path:

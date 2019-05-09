@@ -7,9 +7,18 @@ import math
 from myblog.libs.utils.page import api_page
 
 
+def main_page(request):
+    """
+    main/ 主入口页面
+    :param request:
+    :return:
+    """
+    return render_template(request, 'main.html')
+
+
 def yd_information(request):
     """
-    main/ 移动对比数据信息页面
+    info/ 移动对比数据信息页面
     :param request:
     :return:
     """
@@ -33,4 +42,29 @@ def yd_information(request):
         out.page_range = page_range
         out.page = page
         out.allpage = num_total
-        return render_template(request, 'login.html',out)
+        return render_template(request, 'info/info.html',out)
+
+
+def yd_information_error(request):
+    """
+    error/ 错误数据重新跑的结果
+    :param request:
+    :return:
+    """
+    return render_template(request, 'info/info_error.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,6 @@
     <meta charset="UTF-8">
     <title>登录页面</title>
     <style>
-        .button {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 30px 200px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 24px;
-            margin: 4px 2px;
-            cursor: pointer;
-            display:block;;margin: 0 auto;
-        }
 
         .page {
             text-align: center;
@@ -49,7 +36,6 @@
 </style>
 </head>
 <body>
-    <button class="button" onclick="go_compare()">移动数据对比</button>
     <div class="table-a">
         <table class="gridtable" align="center" border="1">
             <tr>
@@ -140,7 +126,7 @@
             {% if p == data.number %}
             <span class="current" page="{{p}}" >{{ p }}</span>
             {% else %}
-            <a href="/main?page={{p}}" page="{{ p }}" title="第{{ p }}页">{{ p }}</a>
+            <a href="/info?page={{p}}" page="{{ p }}" title="第{{ p }}页">{{ p }}</a>
             {% endif %}
             {% endfor %}
         </span>
@@ -161,14 +147,14 @@
         if(page<=1){
             page=1;
         }
-        location.href="/main?page="+page;
+        location.href="/info?page="+page;
     })
     $('.next').on('click',function(){
         page++;
         if(page>=allpage){
             page = allpage;
         }
-        location.href="/main?page="+page;
+        location.href="/info?page="+page;
     })
 </script>
 
