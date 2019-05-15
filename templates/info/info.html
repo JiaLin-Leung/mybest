@@ -33,6 +33,27 @@
             background-color: #ffffff;
         }
 
+        .button_one{
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;
+            margin: 4px 2px;
+            cursor: pointer;
+            display:block;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        .button_tow{
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;
+            margin: 4px 2px;
+            cursor: pointer;
+            display:block;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
 </style>
 </head>
 <body>
@@ -66,6 +87,10 @@
             </tr>
         </table>
     <div>
+
+        <button class="button_one">第一次轮循</button>
+    <button class="button_tow">第二次轮循</button>
+
                 <table class="gridtable" align="center" border="1">
                 <tr>
                     <th class="hi_1">id</th>
@@ -75,6 +100,7 @@
                     <th class="hi_5">科目</th>
                     <th class="hi_6">移动开通状态</th>
                     <th class="hi_7">同步课堂开通状态</th>
+                    <th class="hi_8">轮循轮数</th>
                 </tr>
                 {% for item in data %}
                 <tr>
@@ -113,6 +139,9 @@
                     <td class="hi_7 wi_7">
                          <p>开通</p>
                     </td>
+                    <td class="hi_7 wi_7">
+                         <p>{{ item.cycle_num }}</p>
+                    </td>
                 </tr>
                 {% endfor %}
             </table>
@@ -141,20 +170,53 @@
 <script>
     var page = "{{page}}";
     var allpage = "{{allpage}}";
+    var cycle_num = "{{cycle_num}}";
         //分页点击
-    $('.prev').on('click',function(){
-        page--;
-        if(page<=1){
-            page=1;
-        }
-        location.href="/info?page="+page;
-    })
-    $('.next').on('click',function(){
+    if (cycle_num == 1){
+        $('.prev').on('click',function(){
+            page--;
+            if(page<=1){
+                page=1;
+            }
+            location.href="/info?page="+page;
+        })
+        $('.next').on('click',function(){
+            page++;
+            if(page>=allpage){
+                page = allpage;
+            }
+            location.href="/info?page="+page;
+        })
+    }else{
+        $('.prev').on('click',function(){
+            page--;
+            if(page<=1){
+                page=1;
+            }
+            location.href="/info?cycle_num=2&page="+page;
+        })
+        $('.next').on('click',function(){
+            page++;
+            if(page>=allpage){
+                page = allpage;
+            }
+            location.href="/info?cycle_num=2&page="+page;
+        })
+    }
+
+    $('.button_one').on('click',function(){
         page++;
         if(page>=allpage){
             page = allpage;
         }
-        location.href="/info?page="+page;
+        location.href="/info?page=1&cycle_num="+1;
+    })
+    $('.button_tow').on('click',function(){
+        page++;
+        if(page>=allpage){
+            page = allpage;
+        }
+        location.href="/info?page=1&cycle_num="+2;
     })
 </script>
 

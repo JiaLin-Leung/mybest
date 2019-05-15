@@ -9,9 +9,9 @@ def yd_information_common():
     return data.total if data else 0
 
 
-def error_info(page,page_size):
+def error_info(page, page_size, cycle_num):
     error_info_sql = '''
-        select id,phone_num,code,ecid,subject_id,after_status from tbkt_base.mobile_cycle_exception limit %s,%s;
-    '''% ((page - 1)*page_size, page_size * page)
+        select id,phone_num,code,ecid,subject_id,after_status,cycle_num from tbkt_base.mobile_cycle_exception where cycle_num = %s limit %s,%s;
+    '''% (cycle_num, (page - 1)*page_size, page_size * page)
     data = db.yd.fetchall_dict(error_info_sql)
     return data
