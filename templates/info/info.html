@@ -155,7 +155,11 @@
             {% if p == data.number %}
             <span class="current" page="{{p}}" >{{ p }}</span>
             {% else %}
-            <a href="/info?page={{p}}" page="{{ p }}" title="第{{ p }}页">{{ p }}</a>
+                {% if cycle_num == 1 %}
+                    <a href="/info?page={{p}}" page="{{ p }}" title="第{{ p }}页">{{ p }}</a>
+                {% else %}
+                    <a href="/info?cycle_num=2&page={{p}}" page="{{ p }}" title="第{{ p }}页">{{ p }}</a>
+                {% endif %}
             {% endif %}
             {% endfor %}
         </span>
