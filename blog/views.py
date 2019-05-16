@@ -22,10 +22,11 @@ def yd_information(request):
     :param request:
     :return:
     """
+    offset = 20  # 每页现实的信息条数
     out = Struct()
     if request.method == 'GET':
-        page = int(request.GET.get('page',1))
-        cycle_num = int(request.GET.get('cycle_num',1))
+        page = int(request.GET.get('page', 1))
+        cycle_num = int(request.GET.get('cycle_num', 1))
         sql_cycle_info = '''
             select id,cycle_max_id,main_cycle_num,add_time,sql_cycle_num from sql_cycle_info;
         '''  # 查询记录sql每次循环的最大id值，和目前的循环次数
@@ -35,16 +36,16 @@ def yd_information(request):
             data.add_time = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
             out.data_info = data
             out.compare_num = data.sql_cycle_num * 500
-        total = yd_information_common()    # 返回总页数
+        total = yd_information_common()  # 返回总页数
         num_total = math.ceil(total / 10)
-        data = error_info(page, 10, cycle_num)
+        data = error_info(page, offset, cycle_num)
         data, page_range = api_page(data, page, total)
         out.data = data
         out.page_range = page_range
         out.cycle_num = cycle_num
         out.page = page
         out.allpage = num_total
-        return render_template(request, 'info/info.html',out)
+        return render_template(request, 'info/info.html', out)
 
 
 def yd_information_error(request):
@@ -54,19 +55,3 @@ def yd_information_error(request):
     :return:
     """
     return render_template(request, 'info/info_error.html')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
